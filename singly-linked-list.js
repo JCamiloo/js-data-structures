@@ -33,6 +33,27 @@ class MySingleLinkedList {
     this.tail = this.head;
     this.length = 1;
   }
+
+  append(value) {
+    const newNode = new Node(value);
+
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+
+    return this;
+  }
+
+  prepend(value) {
+    const newNode = new Node(value);
+
+    newNode.next = this.head;
+    this.head = newNode;
+
+    this.length++;
+
+    return this;
+  }
 }
 
 let mySinglyLinkedList = new MySingleLinkedList(1);
