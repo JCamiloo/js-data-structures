@@ -30,4 +30,4 @@ class MyDoublyLinkedList {
   }
 }
 
-let myDoublyLinkedList = new MyDoublyLinkedList(1);
+const myDoublyLinkedList = new MyDoublyLinkedList(1);

@@ -104,4 +104,4 @@ class MySingleLinkedList {
   }
 }
 
-let myLinkedList = new MySingleLinkedList(1);
+const myLinkedList = new MySingleLinkedList(1);
