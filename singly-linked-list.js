@@ -54,6 +54,54 @@ class MySingleLinkedList {
 
     return this;
   }
+
+  insert(index, value) {
+    if (index >= this.length) {
+      return this.append(value);
+    }
+
+    const newNode = new Node(value);
+    const firstPointer = this.getIndex(index - 1);
+    const holdingPointer = firstPointer.next;
+    newNode.next = holdingPointer;
+    firstPointer.next = newNode;
+
+    this.length++;
+
+    return this;
+  }
+
+  remove(index) {
+    if (index > this.length) {
+      return undefined;
+    }
+
+    const pointerToMove = this.getIndex(index);
+
+    if (index === 0) {
+      this.head = pointerToMove.next;
+    } else {
+      const parentPointer = this.getIndex(index - 1);
+      parentPointer.next = pointerToMove.next;
+    }
+      
+    this.length--;
+    this.append(pointerToMove.value);
+
+    return this;
+  }
+
+  getIndex(index) {
+    let counter = 0;
+    let currentNode = this.head;
+
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+
+    return currentNode;
+  }
 }
 
-let mySinglyLinkedList = new MySingleLinkedList(1);
+let myLinkedList = new MySingleLinkedList(1);
